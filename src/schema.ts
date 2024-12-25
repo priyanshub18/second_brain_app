@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
-
+const Model = mongoose.model;
 const { Types } = mongoose;
 
 const userSchema = new Schema({
@@ -42,10 +42,10 @@ const linkSchema = new Schema({
     userId: { type: Types.ObjectId, ref: 'User', required: true },
 });
 
-mongoose.model('User', userSchema);
-mongoose.model('Tag', tagSchema);
-mongoose.model('Content', contentSchema);   
-mongoose.model('Link', linkSchema);
+const UserModel =   Model('User', userSchema);
+const TagModel =  Model('Tag', tagSchema);
+const ContentModel = Model('Content', contentSchema);   
+const LinkModel = Model('Link', linkSchema);
 
 
-export {userSchema, tagSchema, contentSchema, linkSchema};
+export {UserModel , TagModel , ContentModel , LinkModel};
